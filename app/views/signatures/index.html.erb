@@ -1,0 +1,16 @@
+<% provide(:title, "People, please stop hurting people!") %>
+<% provide(:header, "People, please stop hurting people!") %>
+<h3><%= pluralize(@signatures, "signature")%>, and counting.</h3>
+<%= form_for(@signature, url: root_path(@signature)) do |f| %>
+
+  <%= f.label :firstname %>
+  <%= f.text_field :firstname %>
+
+  <%= f.label :lastname %>
+  <%= f.text_field :lastname %>
+
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+
+  <%= f.submit "Please, Stop!"%>
+<% end %>
