@@ -1,5 +1,6 @@
-var el = $('#new-signature-form');
-
+var el = $('#mainbox');
+var response = el.find('#response')
+response.find('#message').html("");
 <% if @signature.errors.any? %>
 
   // Create a list of errors
@@ -10,7 +11,8 @@ var el = $('#new-signature-form');
   <% end %>
 
   // Display errors on form
-  el.find('.errors').html(errors);
+  response.find('#message').html("Failed to sign");
+  response.find('#errors').html(errors);
 
 <% else %>
   $('#signatures').empty().append("<%= escape_javascript( 
@@ -19,6 +21,7 @@ var el = $('#new-signature-form');
 
   // Clear form
   el.find('input:text,textarea').val('');
-  el.find('.errors').empty();
+  response.find('#message').html("Thanks for signing!");
+  response.find('#errors').empty();
 
 <% end %>

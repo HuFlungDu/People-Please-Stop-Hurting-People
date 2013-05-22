@@ -1,7 +1,7 @@
 <% provide(:title, "People, please stop hurting people!") %>
 
 <div class="wrapper">
-	<section class="letter-container">
+	<section class="letter-container" id="mainbox">
 		<p>People,</p> 
 		<p>Please stop hurting people.</p>
 		<p>Thanks,</p>
@@ -10,9 +10,13 @@
 		<fieldset>
 		  <%= f.text_field :name, :class => "signature-name" %>
 
-		  <%= f.submit "Sign", :class => "signature-submit" %>
+		  <%= f.submit "Sign", :class => "signature-submit", disable_with: "Signing..." %>
 		</fieldset>
 		<% end %>
+		<div id="response">
+			<div id="message"></div>
+			<div id="errors"></div>
+		</div>
 	</section><!-- / letter-container -->
 
 	<section class="signatures-container" id="signatures">
