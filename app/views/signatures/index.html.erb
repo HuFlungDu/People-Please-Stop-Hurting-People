@@ -5,7 +5,7 @@
 		<p>People,</p> 
 		<p>Please stop hurting people.</p>
 		<p>Thanks,</p>
-		<%= form_for(@signature, url: root_path(@signature)) do |f| %>
+		<%= form_for(@signature, url: root_path(@signature), remote: true) do |f| %>
 		
 		<fieldset>
 		  <%= f.text_field :name, :class => "signature-name" %>
@@ -17,8 +17,6 @@
 
 	<section class="signatures-container">
 		<h3><%= pluralize(@signature_count, "signature")%>, and counting.</h3>
-		<% @signatures.each do |s| %>
-			<h3><%= s.name %></h3>
-		<% end %>
+		<%= render @signatures %>
 	</section><!-- / signatures-container -->
 </div> <!-- / wrapper -->
