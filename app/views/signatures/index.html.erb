@@ -8,13 +8,10 @@
 		<%= form_for(@signature, url: root_path(@signature)) do |f| %>
 		
 		<fieldset>
-		  <%= f.text_field :firstname, :class => "signature-name" %>
+		  <%= f.text_field :name, :class => "signature-name" %>
 
 		  <%= f.submit "Sign", :class => "signature-submit" %>
 		</fieldset>
-
-		  <%= f.label :lastname %>
-		  <%= f.text_field :lastname %>
 
 		  <%= f.label :email %>
 		  <%= f.text_field :email %>
