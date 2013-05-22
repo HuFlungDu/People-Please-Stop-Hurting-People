@@ -8,10 +8,16 @@ $lightColor: lighten($darkColor, 60%);
 	box-sizing:border-box;
 }
 
+::selection {
+	background:lighten($darkColor, 35%);
+}
+
+::-moz-selection {
+	background:lighten($darkColor, 35%);
+}
+
 body {
-	height:100%;
-	padding:0;
-	font: "Palatino Linotype", sans-serif;
+	font: Helvetica, sans-serif;
 	color:$lightColor;
 	background:$darkColor;
 }
@@ -19,9 +25,9 @@ body {
 .wrapper {
 	width:100%;
 	overflow:hidden;
-	position:absolute;
-	top:0;
-	bottom:0;
+	// position:absolute;
+	// top:0;
+	// bottom:0;
 }
 
 .letter-container {
@@ -85,7 +91,7 @@ body {
 	float:right;
 	background:$lightColor;
 	color:$darkColor;
-	border-left:1em solid darken($darkColor, 5%);
+	border-left:1em solid darken($darkColor, 10%);
 
 }
 
