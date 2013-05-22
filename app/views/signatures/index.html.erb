@@ -16,6 +16,9 @@
 	</section><!-- / letter-container -->
 
 	<section class="signatures-container">
-		<h3><%= pluralize(@signatures, "signature")%>, and counting.</h3>
+		<h3><%= pluralize(@signature_count, "signature")%>, and counting.</h3>
+		<% @signatures.each do |s| %>
+			<h3><%= s.name %></h3>
+		<% end %>
 	</section><!-- / signatures-container -->
 </div> <!-- / wrapper -->

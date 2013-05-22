@@ -1,7 +1,8 @@
 class SignaturesController < ApplicationController
   def create
     @signature = @query = Signature.new(params[:signature])
-    @signatures = Signature.count
+    @signatures = Signature.limit(50).order("id desc")
+    @signature_count = Signature.count
     if @signature.save
         flash[:success] = "Thanks for signing!"
         redirect_to root_path
@@ -13,6 +14,7 @@ class SignaturesController < ApplicationController
 
   def index
     @signature = Signature.new
-    @signatures = Signature.count
+    @signatures = Signature.limit(50).order("id desc")
+    @signature_count = Signature.count
   end
 end
