@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $darkColor: hsl(330,55%,35%);
-$lightColor: hsl(330, 55%, 95%);
+$lightColor: lighten($darkColor, 60%);
 
 * {
 	box-sizing:border-box;
@@ -34,14 +34,58 @@ body {
 		font-size: 3em;
 		line-height: 1.6;
 	}
+
+	fieldset {
+		margin-bottom:2em;
+	}
+}
+
+.signature-name {
+	display:inline-block;
+	vertical-align:center;
+	font-weight:bold;
+	color:$lightColor;
+	border:2px solid darken($darkColor, 5%);
+	background-color:transparentize($lightColor, .6);
+	padding:.5em;
+	margin-left:-.5em;
+	margin-right:.5em;
+	font-size:2.5em;
+	width:75%;
+
+	transition:all .25s ease;
+
+	&:focus {
+		background-color:transparentize($lightColor, .8)
+	}
+}
+
+.signature-submit {
+	display:inline-block;
+	vertical-align: center;
+	font-size: 2em;
+	padding: .4em;
+
+	background-color:lighten($darkColor, 20%);
+	color:$lightColor;
+	border:3px solid darken($darkColor, 10%);
+
+	transition:all .25s ease;
+
+	&:hover, &:focus {
+		background-color:$lightColor;
+		color: lighten($darkColor, 20%);
+	}
 }
 
 .signatures-container {
 	height:100%;
-	padding:2em 5%;
+	padding:2em 2.5%;
 	width:33%;
 	float:right;
 	background:$lightColor;
 	color:$darkColor;
+	border-left:1em solid darken($darkColor, 5%);
+
 }
 
