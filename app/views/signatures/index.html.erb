@@ -15,8 +15,7 @@
 		<% end %>
 	</section><!-- / letter-container -->
 
-	<section class="signatures-container">
-		<h3><%= pluralize(@signature_count, "signature")%>, and counting.</h3>
-		<%= render @signatures %>
+	<section class="signatures-container" id="signatures">
+		<%= render :partial => "signatures", :locals => {:signatures => @signatures, :signature_count => @signature_count} %>
 	</section><!-- / signatures-container -->
 </div> <!-- / wrapper -->
