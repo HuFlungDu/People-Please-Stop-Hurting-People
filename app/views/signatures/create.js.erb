@@ -10,7 +10,6 @@ response.find('#message').html("");
     errors.append('<li><%= escape_javascript( error ) %></li>');
   <% end %>
 
-  // Display errors on form
   response.find('#message').html("Failed to sign");
   response.find('#errors').html(errors);
 
