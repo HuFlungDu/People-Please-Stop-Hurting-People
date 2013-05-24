@@ -1,6 +1,8 @@
-var el = $('#mainbox');
-var response = el.find('#response')
+var el = $('#petitionContainer'),
+    response = $('#response')
+
 response.find('#message').html("");
+
 <% if @signature.errors.any? %>
 
   // Create a list of errors
@@ -14,7 +16,7 @@ response.find('#message').html("");
   response.find('#errors').html(errors);
 
 <% else %>
-  $('#signatures').empty().append("<%= escape_javascript( 
+  $('#signatur  es').empty().append("<%= escape_javascript( 
     render :partial => "signatures", :locals => {:signatures => @signatures, :signature_count => @signature_count}
     ) %>");
 
