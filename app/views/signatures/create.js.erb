@@ -16,12 +16,12 @@ response.find('#message').html("");
   response.find('#errors').html(errors);
 
 <% else %>
-  $('#signatur  es').empty().append("<%= escape_javascript( 
+  $('#signatures').empty().append("<%= escape_javascript( 
     render :partial => "signatures", :locals => {:signatures => @signatures, :signature_count => @signature_count}
     ) %>");
 
   // Clear form
-  el.find('input:text,textarea').val('');
+  $('#petitionFormName').val('');
   response.find('#message').html("Thanks for signing!");
   response.find('#errors').empty();
 
