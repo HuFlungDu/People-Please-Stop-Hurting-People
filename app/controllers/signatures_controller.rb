@@ -2,7 +2,7 @@ class SignaturesController < ApplicationController
   def create
     @signature = @query = Signature.new(params[:signature])
     respond_to do |format|
-      if cookies[:signed] != "true" and @signature.save
+      if (cookies[:signed] != "true" or Rails.env.development?) and @signature.save
         @signatures = Signature.limit(50).order("id desc")
         @signature_count = Signature.count
         cookies[:signed] = {
