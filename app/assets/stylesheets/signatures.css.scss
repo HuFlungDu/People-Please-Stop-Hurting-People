@@ -1,19 +1,11 @@
 // Place all the styles related to the Signatures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-$darkColor: hsl(330,55%,35%);
-$lightColor: lighten($darkColor, 60%);
+$primaryColor: hsl(330,55%,35%);
+$lightColor: lighten($primaryColor, 60%);
 
 * {
 	box-sizing:border-box;
-}
-
-::selection {
-	background:lighten($darkColor, 35%);
-}
-
-::-moz-selection {
-	background:lighten($darkColor, 35%);
 }
 
 html {
@@ -22,8 +14,6 @@ html {
 
 body {
 	font-family: Helvetica, sans-serif;
-	color:$lightColor;
-	background:$darkColor;
 	height:100%;
 	font-size:.6em;
 	line-height: 1.2;
@@ -37,7 +27,7 @@ body > .wrapper {
 	position:relative;
 }
 
-.petition__container {
+.petition-container {
 	padding:2em 5%;
 
 	p {
@@ -50,66 +40,64 @@ body > .wrapper {
 	}
 }
 
-.petition__form__sign-name {
+.petition-form__sign-name {
 	display:inline-block;
 	vertical-align:center;
 	font-weight:bold;
-	color:$lightColor;
-	border:2px solid darken($darkColor, 5%);
-	background-color:transparentize($lightColor, .6);
+	border-width:2px; 
+	border-style:solid;
 	padding:.5em;
-	margin-left:-.5em;
 	margin-right:.5em;
 	font-size:2.5em;
 	width:75%;
 
 	transition:all .25s ease;
-
-	&:focus {
-		background-color:transparentize($lightColor, .8)
-	}
 }
 
-.petition__form__sign-submit {
+.petition-form__sign-submit {
 	display:inline-block;
 	vertical-align: center;
 	font-size: 2em;
 	padding: .4em;
 
-	background-color:lighten($darkColor, 20%);
-	color:$lightColor;
-	border:3px solid darken($darkColor, 10%);
+	border-width:3px;
+	border-style:solid;
 
 	transition:all .25s ease;
-
-	&:hover, &:focus {
-		background-color:$lightColor;
-		color: lighten($darkColor, 20%);
-	}
 }
 
-.petition__signatures-container {
+.signatures-container {
 	padding:2em 2.5%;
-	background:$lightColor;
-	color:$darkColor;
-	border-top:1em solid darken($darkColor, 10%);
+	border-top-width:1em;
+	border-top-style:solid;
 
 }
+
+.signatures { font-size:1.2em; }
 
 @media screen and (min-width: 811px) {
-	.petition__container {
-		width:66%;
-		float:left;
+	.petition-container {
+		position:absolute;
+		left:0;
+		top:0;
+		height:100%;
+		width:33%;
+		width:67%;
 	}
 
-	.petition__signatures-container {
+	.signatures-container {
 		position:absolute;
 		right:0;
 		top:0;
 		height:100%;
 		width:33%;
 		border-top:none;
-		border-left:1em solid darken($darkColor, 10%);
+		border-left-width:1em; 
+		border-left-style:solid;
+	}
+
+	.petition-form__sign-name {
+		margin-left: -.5em;
 	}
 }
 
@@ -125,21 +113,52 @@ $width: 320;
 
 @while $i < 360 {
 	$width: $width + 4.4;
-	$darkColor: adjust-hue($darkColor,  1deg);
-	$secondaryColor: lighten($darkColor, 60%);
+	$primaryColor: adjust-hue($primaryColor,  1deg);
+	$secondaryColor: lighten($primaryColor, 60%);
+
 	@media screen and (min-width: #{$width}px) {
-		::selection { background:lighten($darkColor, 35%); }
-		::-moz-selection { background:lighten($darkColor, 35%); }
-		body { color:$secondaryColor; background:$darkColor; }
+		::selection { background:lighten($primaryColor, 35%); }
+		::-moz-selection { background:lighten($primaryColor, 35%); }
 
-		.petition__form__sign-name { color:$secondaryColor; border-color:darken($darkColor, 5%); background-color:transparentize($secondaryColor, .6);
-			&:focus { background-color:transparentize($secondaryColor, .8) }
+		body { 
+			color:$primaryColor;
+			background:$secondaryColor;
 		}
 
-		.petition__form__sign-submit { background-color:lighten($darkColor, 20%); color:$secondaryColor; border-color:darken($darkColor, 10%);
-			&:hover, &:focus { background-color:$secondaryColor;color: lighten($darkColor, 20%);}
+		.petition-container {
+			color:$secondaryColor; 
+			background:$primaryColor; 
 		}
-		.petition__signatures-container { background:$secondaryColor; color:$darkColor; border-color:darken($darkColor, 10%); }
+
+		.petition-form__sign-name { 
+			color:$secondaryColor; 
+			border-color:darken($primaryColor, 5%); 
+			background-color:transparentize($secondaryColor, .6);
+
+			&:focus { 
+				background-color:transparentize($secondaryColor, .8);
+				outline-color: darken($primaryColor, 10%);
+			}
+		}
+
+		.petition-form__sign-submit { 
+			background-color:lighten($primaryColor, 20%); 
+			color:$secondaryColor; 
+			border-color:darken($primaryColor, 10%);
+
+			&:hover, 
+			&:focus { 
+				background-color:$secondaryColor;
+				color: lighten($primaryColor, 20%);
+				outline-color: darken($primaryColor, 10%);
+			}
+		}
+
+		.signatures-container { 
+			background:$secondaryColor; 
+			color:$primaryColor; 
+			border-color:darken($primaryColor, 10%); 
+		}
 	}
 	$i: $i + 1;
 }

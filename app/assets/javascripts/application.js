@@ -13,4 +13,5 @@
 //= require plugins
 //= require jquery
 //= require jquery_ujs
+//= require reverseListPoly.jquery
 //= require_tree .

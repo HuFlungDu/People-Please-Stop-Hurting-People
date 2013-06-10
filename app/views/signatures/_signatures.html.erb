@@ -1,4 +1,4 @@
-<h3><%= pluralize(signature_count, "signature")%>, and counting.</h3>
-<ul>
+<h2><%= pluralize(signature_count, "signature")%>, and counting.</h2>
+<ol class="signatures" reversed start="<%= signature_count %>">
     <%= render signatures %>
-</ul>
+</ol>

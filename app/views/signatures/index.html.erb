@@ -1,24 +1,24 @@
-<% provide(:title, "People, please stop hurting people!") %>
+<% provide(:title, "The petition to stop violence.") %>
 
 <div class="wrapper">
-	<section class="petition__container" id="petitionContainer">
+	<section class="petition-container" id="petitionContainer">
 		<p>People,</p> 
 		<p>Please, stop hurting people.</p>
 		<p>Thank you,</p>
 		<%= form_for(@signature, url: root_path(@signature), remote: true) do |f| %>
 		
 		<fieldset>
-		  <%= f.text_field :name, :class => "petition__form__sign-name", :id => "petitionFormName" %>
+		  <%= f.text_field :name, :class => "petition-form__sign-name", :id => "petitionFormName" %>
 
-		  <%= f.submit "Sign", :class => "petition__form__sign-submit", disable_with: "Signing..." %>
+		  <%= f.submit "Sign", :class => "petition-form__sign-submit", disable_with: "Signing..." %>
 		</fieldset>
 		<% end %>
 	</section><!-- / letter-container -->
 
-	<section class="petition__signatures-container" id="signatures">
+	<section class="signatures-container" id="signatures">
 		<div id="response">
-			<div id="message"></div>
-			<div id="errors"></div>
+			<h3 id="message"></h3>
+			<h3 id="errors"></h3>
 		</div>
 		<%= render :partial => "signatures", :locals => {:signatures => @signatures, :signature_count => @signature_count} %>
 	</section><!-- / signatures-container -->
