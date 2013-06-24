@@ -22,7 +22,8 @@ response.find('#message').html("");
 
   // Clear form
   $('#petitionFormName').val('');
-  response.find('#message').html("Thanks for signing!");
+  el.html("<p class=\"signed\">Thanks for signing!</p>")
+  //response.find('#message').html("Thanks for signing!");
   response.find('#errors').empty();
 
 <% end %>
