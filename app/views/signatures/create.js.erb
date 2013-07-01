@@ -20,6 +20,8 @@ response.find('#message').html("");
     render :partial => "signatures", :locals => {:signatures => @signatures, :signature_count => @signature_count}
     ) %>");
 
+  $('#petitionFormSubmit').addClass('petition-signed');
+
   // Clear form
   $('#petitionFormName').val('');
   el.html("<p class=\"signed\">Thanks for signing!</p>")

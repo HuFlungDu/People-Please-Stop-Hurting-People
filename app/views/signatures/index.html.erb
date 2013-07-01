@@ -10,7 +10,7 @@
 		<fieldset>
 		  <%= f.text_field :name, :class => "petition-form__sign-name", :id => "petitionFormName" %>
 
-		  <%= f.submit "Sign", :class => "petition-form__sign-submit", disable_with: "Signing..." %>
+		  <%= f.submit "Sign", :class => "petition-form__sign-submit", :id => "petitionFormSubmit", disable_with: "Signing..." %>
 		</fieldset>
 		<% end %>
 	</section><!-- / letter-container -->
